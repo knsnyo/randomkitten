@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+	<title> kitten in a div </title>
+	<script type="text/javascript">
+		var timer;
+		function intervalAppend()
+		{ 
+			// after every 1 sec call appendPara()
+			timer = setInterval(appendPara, 1000); // 1000ms == 1s
+		}
+		function inercalClear()
+		{
+			clearInterval(timer);
+		}
+
+		function appendPara()
+		{
+			var random = Math.random(); // 0 - 1
+			var a = document.createElement("img");
+			if(random < 0.5)
+			{
+				a.src = "images/kitten1.jpg";
+			}
+			else
+			{
+				a.src = "images/kitten2.jpg";
+			}
+			a.style.width = "200px";
+			a.style.height = "200px";
+			var b = document.getElementById("div1");
+			b.appendChild(a);
+		}	
+	</script>
+</head>
+<body onload = "intervalAppend()" onclick = "intervalClear()">
+		<div id = "div1"> </div>
+</body>
+</html>
